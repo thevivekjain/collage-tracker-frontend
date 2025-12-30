@@ -1,0 +1,111 @@
+.requests-page {
+  max-width: 700px;
+  margin: 30px auto;
+  padding: 0 12px; /* ✅ mobile side spacing */
+}
+
+.nameline{
+  margin-bottom: 25px;
+}
+
+.request-card {
+  background-color: var(--bg-card);
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid var(--border-light);
+}
+
+/* ===== STATUS BADGE ===== */
+.badge {
+  display: inline-block;
+  padding: 5px 12px;
+  border-radius: 14px;
+  font-size: 12px;
+  margin: 6px 0;
+}
+
+.badge.pending {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.badge.completed {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.badge.rejected {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+/* ===== REJECT REASON ===== */
+.reject-reason {
+  margin-top: 8px;
+  padding: 10px;
+  background-color: #fff1f1;
+  border-left: 4px solid #c0392b;
+  color: #721c24;
+  border-radius: 4px;
+  font-size: 13px;
+}
+
+/* ===== LINKS ===== */
+.timeline-link {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 13px;
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.timeline-link:hover {
+  text-decoration: underline;
+}
+
+/* ===== DOWNLOAD BUTTON ===== */
+.download-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 6px 14px;
+  background: #16a34a;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.download-btn:hover {
+  background: #15803d;
+}
+
+/* ================= MOBILE RESPONSIVE ================= */
+@media (max-width: 600px) {
+  .request-card {
+    padding: 12px;
+  }
+
+  .badge {
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+
+  .timeline-link {
+    display: block;
+    margin-top: 8px;
+    font-size: 14px;
+  }
+
+  .download-btn {
+    display: block;        /* ✅ full width button */
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    font-size: 15px;
+  }
+
+  .reject-reason {
+    font-size: 12.5px;
+  }
+}

@@ -1,0 +1,159 @@
+.assigned-page {
+  max-width: 800px;
+  margin: 30px auto;
+}
+
+.assigned-card {
+  background-color: var(--bg-card);
+  padding: 18px;
+  margin-bottom: 16px;
+  border-radius: 10px;
+  border: 1px solid var(--border-light);
+}
+
+.assigned-card button {
+  margin-top: 10px;
+}
+
+.badge {
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  display: inline-block;
+  margin-bottom: 8px;
+}
+
+.badge.pending {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.badge.completed {
+  background: #d4edda;
+  color: #155724;
+}
+
+.badge.rejected {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+.reject-btn {
+  margin-left: 10px;
+  background-color: #c0392b;
+  color: white;
+}
+
+.loader {
+  text-align: center;
+  color: var(--text-muted);
+  margin-top: 40px;
+}
+
+
+/* ================= REJECT MODAL ================= */
+
+.reject-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.35);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.reject-modal textarea {
+  width: 100%;
+  min-height: 90px;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid var(--border-light);
+  resize: none;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+.reject-modal > div {
+  background-color: var(--bg-card);
+  padding: 25px;
+  width: 380px;
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  border: 1px solid var(--border-light);
+}
+
+.reject-modal h3 {
+  margin-bottom: 10px;
+  color: var(--primary-dark);
+}
+
+.reject-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.reject-actions button {
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.reject-actions .confirm {
+  background-color: #c0392b;
+  color: white;
+}
+
+.reject-actions .cancel {
+  background-color: #e0e0e0;
+  color: #333;
+}
+
+.reject-actions .confirm:hover {
+  opacity: 0.9;
+}
+
+.reject-actions .cancel:hover {
+  background-color: #d5d5d5;
+}
+
+/* ===== Modal Animation ===== */
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalScaleIn {
+  from {
+    transform: scale(0.9);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.reject-modal {
+  animation: modalFadeIn 0.25s ease-out forwards;
+}
+
+.reject-modal > div {
+  animation: modalScaleIn 0.25s ease-out forwards;
+}
+
+.reject-actions button {
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.reject-actions button:hover {
+  transform: translateY(-1px);
+  opacity: 0.95;
+}

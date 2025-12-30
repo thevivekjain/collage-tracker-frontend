@@ -1,0 +1,108 @@
+/* ===== PAGE ===== */
+.manage-page {
+  padding: 24px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* ===== HEADER ===== */
+.manage-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.manage-header h2 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+/* ===== SEARCH (LEFT SMALL) ===== */
+.search-box {
+  width: 220px;              /* 👈 small size */
+  padding: 8px 12px;
+  font-size: 14px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  outline: none;
+}
+
+.search-box:focus {
+  border-color: #2563eb;
+}
+
+/* ===== STUDENT LIST ===== */
+.student-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* ===== STUDENT CARD (OLD UI SAFE) ===== */
+.student-card {
+  background: #ffffff;
+  padding: 16px 18px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.student-card b {
+  font-size: 15px;
+  color: #0f172a;
+}
+
+.student-card p {
+  margin: 4px 0 0;
+  font-size: 13px;
+  color: #475569;
+}
+
+/* ===== BUTTONS ===== */
+.student-card button {
+  padding: 6px 14px;
+  font-size: 13px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.student-card button.disable {
+  background: #ef4444;
+  color: white;
+}
+
+.student-card button.enable {
+  background: #22c55e;
+  color: white;
+}
+
+/* ===== MOBILE RESPONSIVE ===== */
+@media (max-width: 600px) {
+  .manage-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .search-box {
+    width: 100%;        /* 👈 full width on mobile */
+  }
+
+  .student-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .student-card button {
+    width: 100%;
+  }
+}

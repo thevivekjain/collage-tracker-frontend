@@ -1,0 +1,84 @@
+/* ===== PAGE ===== */
+.manage-staff-page {
+  padding: 30px;
+  background: #f8fafc;
+  min-height: calc(100vh - 80px);
+}
+
+.manage-staff-page h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+/* ===== STAFF LIST ===== */
+.staff-item {
+  background: #ffffff;
+  padding: 14px 18px;
+  margin-bottom: 12px;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ===== TEXT ===== */
+.staff-info {
+  font-size: 15px;
+  color: #1e293b;
+}
+
+.staff-info b {
+  font-size: 16px;
+  color: #0f172a;
+}
+
+.staff-role {
+  text-transform: capitalize;
+  color: #64748b;
+  font-size: 14px;
+  margin-left: 6px;
+}
+
+/* ===== BUTTONS ===== */
+.staff-action button {
+  padding: 7px 14px;
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.disable-btn {
+  background: #ef4444;
+  color: #ffffff;
+}
+
+.enable-btn {
+  background: #22c55e;
+  color: #ffffff;
+}
+
+.staff-action button:hover {
+  opacity: 0.9;
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 600px) {
+  .staff-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .staff-action {
+    width: 100%;
+  }
+
+  .staff-action button {
+    width: 100%;
+  }
+}

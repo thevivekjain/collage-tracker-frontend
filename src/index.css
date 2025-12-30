@@ -1,13 +1,51 @@
-body {
+/* ===== RESET ===== */
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Arial, sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* ===== COLOR PALETTE (Light BG, Dark Text) ===== */
+:root {
+  --bg-main: #f4fbfb;        /* light teal background */
+  --bg-card: #ffffff;        /* white cards */
+  --primary-dark: #08314a;   /* deep teal */
+  --primary: #005f7b;        /* teal */
+  --accent: #04e4d8;         /* aqua accent */
+  --border-light: #cfeeee;   /* soft border */
+  --text-dark: #0f2f3a;      /* dark text */
+  --text-muted: #5f7d8a;     /* muted text */
+}
+
+/* ===== BODY ===== */
+body {
+  background-color: var(--bg-main);
+  color: var(--text-dark);
+}
+
+/* ===== COMMON ELEMENTS ===== */
+h1, h2, h3 {
+  color: var(--primary-dark);
+}
+
+input, select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  margin-bottom: 12px;
+}
+
+button {
+  padding: 10px 16px;
+  border-radius: 6px;
+  border: none;
+  background-color: var(--primary);
+  color: #ffffff;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--primary-dark);
 }
