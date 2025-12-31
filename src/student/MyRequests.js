@@ -60,7 +60,7 @@ function MyRequests() {
 
               {/* ✅ FIXED: direct Cloudinary URL */}
               <a
-                href={req.issuedDocument}
+                href={`${req.issuedDocument}?dl=1`}
                 target="_blank"
                 rel="noreferrer"
                 className="download-btn"
