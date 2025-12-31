@@ -61,7 +61,7 @@ function MyRequests() {
               {/* ✅ FIXED: direct Cloudinary URL */}
               <a
                 href={`${req.issuedDocument}?
-                fl_attachment=true&response-content-type=application/pdf`}
+                fl_attachment=issued-document.pdf&response-content-type=application/pdf`}
                 
                 target="_blank"
                 rel="noreferrer"
