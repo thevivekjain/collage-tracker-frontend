@@ -52,24 +52,23 @@ function MyRequests() {
             View Timeline
           </Link>
 
-  {req.issuedDocument && (
-  <div className="download-section">
-    <p className="download-text">
-      📄 Your PDF has been uploaded. You can now download it from here.
-    </p>
+          {req.issuedDocument && (
+            <div className="download-section">
+              <p className="download-text">
+                📄 Your PDF has been uploaded. You can now download it from here.
+              </p>
 
-    <a
-      href={`http://localhost:5000/${req.issuedDocument}`}
-      target="_blank"
-      rel="noreferrer"
-      className="download-btn"
-    >
-       Download PDF
-    </a>
-  </div>
-)}
-
-
+              {/* ✅ FIXED: direct Cloudinary URL */}
+              <a
+                href={req.issuedDocument}
+                target="_blank"
+                rel="noreferrer"
+                className="download-btn"
+              >
+                Download PDF
+              </a>
+            </div>
+          )}
         </div>
       ))}
     </div>
