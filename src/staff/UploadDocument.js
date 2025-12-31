@@ -13,16 +13,12 @@ function UploadDocument({ requestId, onUploaded }) {
     }
 
     const formData = new FormData();
-    formData.append("document", file);
+    formData.append("file", file);
 
     try {
       setUploading(true);
 
-      await api.post(`/requests/upload/${requestId}`, formData, {
-        headers: {
-          "Content-Type": "multipart/form-data"
-        }
-      });
+      await api.post(`/requests/upload/${requestId}`, formData);
 
       alert("PDF uploaded successfully");
 
