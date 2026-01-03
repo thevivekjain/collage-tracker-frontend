@@ -59,7 +59,7 @@ function MyRequests() {
 
         
               <a
-                href={req.issuedDocument}
+                href={`https://res.cloudinary.com/ddtflebw7/raw/upload/fl_attachment/${req.issuedDocument}.pdf`}
                 
                 target="_blank"
                 rel="noreferrer"
