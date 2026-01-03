@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import api from "../api/axios";
 import "./Login.css";
 
 function Login() {
+  const navigate = useNavigate();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -13,7 +16,7 @@ function Login() {
 
     if (token && role) {
       if (role === "student") {
-        window.location.replace("/student/my-requests");
+        navigate("/student/my-requests", { replace: true });
       } else if (
         role === "clerk" ||
         role === "hod" ||
@@ -21,21 +24,17 @@ function Login() {
         role === "accounts" ||
         role === "principal"
       ) {
-        window.location.replace("/staff/assigned");
+        navigate("/staff/assigned", { replace: true });
       } else if (role === "admin") {
-        window.location.replace("/admin/dashboard");
+        navigate("/admin/dashboard", { replace: true });
       }
     }
-  }, []);
+  }, [navigate]);
 
   const handleLogin = async () => {
     try {
-      const res = await api.post("/auth/login", {
-        email,
-        password
-      });
+      const res = await api.post("/auth/login", { email, password });
 
-      // Save token & role
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("role", res.data.user.role);
       localStorage.setItem("name", res.data.user.name);
@@ -43,7 +42,7 @@ function Login() {
       const role = res.data.user.role;
 
       if (role === "student") {
-        window.location.href = "/student/my-requests";
+        navigate("/student/my-requests", { replace: true });
       } else if (
         role === "clerk" ||
         role === "hod" ||
@@ -51,17 +50,13 @@ function Login() {
         role === "accounts" ||
         role === "principal"
       ) {
-        window.location.href = "/staff/assigned";
+        navigate("/staff/assigned", { replace: true });
       } else if (role === "admin") {
-        window.location.href = "/admin/dashboard";
+        navigate("/admin/dashboard", { replace: true });
       }
 
     } catch (error) {
-      if (error.response) {
-        alert(error.response.data.message);
-      } else {
-        alert("Server error. Please try again later.");
-      }
+      alert(error.response?.data?.message || "Server error");
     }
   };
 

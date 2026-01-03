@@ -14,7 +14,7 @@ function Navbar() {
   const menuRef = useRef(null);
   const profileRef = useRef(null);
 
-  // 🔒 Close menu / profile on outside click
+  // 🔒 Close menu on outside click
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (menuRef.current && !menuRef.current.contains(e.target)) {
@@ -30,76 +30,67 @@ function Navbar() {
       document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // ✅ LOGOUT (BACK BUTTON SAFE)
+  // ✅ LOGOUT (BACK SAFE)
   const logout = () => {
     if (window.confirm("Are you sure you want to logout?")) {
       localStorage.clear();
-
-      // 🔥 IMPORTANT: history replace so BACK won't reopen dashboard
       navigate("/", { replace: true });
     }
   };
 
   return (
     <nav className="navbar">
-      {/* LOGO */}
-      <h3 className="logo" onClick={() => role && navigate("/", { replace: true })}>
-        College Tracker
-      </h3>
+      <h3 className="logo">College Tracker</h3>
 
-      {/* HAMBURGER */}
       {role && (
-        <div
-          className="menu-icon"
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
+        <div className="menu-icon" onClick={() => setMenuOpen(!menuOpen)}>
           ☰
         </div>
       )}
 
-      {/* NAV LINKS */}
       {role && (
         <div
           ref={menuRef}
           className={`nav-links ${menuOpen ? "open" : ""}`}
         >
-          {/* STUDENT */}
           {role === "student" && (
             <>
-              <a href="/student/create">Create Request</a>
-              <a href="/student/my-requests">My Requests</a>
+              <span onClick={() => navigate("/student/create")}>Create Request</span>
+              <span onClick={() => navigate("/student/my-requests")}>My Requests</span>
             </>
           )}
 
-          {/* STAFF */}
           {(role === "clerk" ||
             role === "hod" ||
             role === "accounts" ||
             role === "principal") && (
-            <a href="/staff/assigned">Assigned Requests</a>
+            <span onClick={() => navigate("/staff/assigned")}>
+              Assigned Requests
+            </span>
           )}
 
-          {/* OFFICE */}
           {role === "office" && (
             <>
-              <a href="/staff/assigned">Assigned Requests</a>
-              <a href="/office/all-requests">Completed Requests</a>
+              <span onClick={() => navigate("/staff/assigned")}>
+                Assigned Requests
+              </span>
+              <span onClick={() => navigate("/office/all-requests")}>
+                Completed Requests
+              </span>
             </>
           )}
 
-          {/* ADMIN */}
           {role === "admin" && (
             <>
-              <a href="/admin/dashboard">Dashboard</a>
-              <a href="/admin/create-staff">Create Staff</a>
-              <a href="/admin/manage-staff">Manage Staff</a>
-              <a href="/admin/manage-students">Manage Students</a>
+              <span onClick={() => navigate("/admin/dashboard")}>Dashboard</span>
+              <span onClick={() => navigate("/admin/create-staff")}>Create Staff</span>
+              <span onClick={() => navigate("/admin/manage-staff")}>Manage Staff</span>
+              <span onClick={() => navigate("/admin/manage-students")}>Manage Students</span>
             </>
           )}
         </div>
       )}
 
-      {/* PROFILE */}
       {role && (
         <div ref={profileRef} className="profile-wrapper">
           <div
