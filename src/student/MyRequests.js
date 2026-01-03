@@ -30,7 +30,6 @@ function MyRequests() {
 
           <p>Current Step: {req.currentStep}</p>
 
-          {/* 🔴 Rejection reason */}
           {req.status === "Rejected" && (
             <p className="reject-reason">
               <strong>Rejected Reason:</strong>{" "}
@@ -58,10 +57,9 @@ function MyRequests() {
                 📄 Your PDF has been uploaded. You can now download it from here.
               </p>
 
-              {/* ✅ FIXED: direct Cloudinary URL */}
+        
               <a
-                href={`${req.issuedDocument}?
-                fl_attachment=issued-document.pdf&response-content-type=application/pdf`}
+                href={`${req.issuedDocument}?fl_attachment`}
                 
                 target="_blank"
                 rel="noreferrer"

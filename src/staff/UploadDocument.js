@@ -22,7 +22,6 @@ function UploadDocument({ requestId, onUploaded }) {
 
       alert("PDF uploaded successfully");
 
-      // ✅ REMOVE REQUEST FROM LIST
       if (onUploaded) {
         onUploaded(requestId);
       }

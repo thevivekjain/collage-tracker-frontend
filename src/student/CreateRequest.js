@@ -30,7 +30,7 @@ function CreateRequest() {
     <div className="form-container">
       <h2>Create Request</h2>
 
-      {/* ✅ DOCUMENT TYPE DROPDOWN */}
+
       <select
   value={documentType}
   onChange={(e) => setDocumentType(e.target.value)}
@@ -56,7 +56,6 @@ function CreateRequest() {
 </select>
 
 
-      {/* ✅ PURPOSE INPUT */}
       <input
         placeholder="Purpose (e.g. Higher studies)"
         value={purpose}
