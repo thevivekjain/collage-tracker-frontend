@@ -59,7 +59,7 @@ function MyRequests() {
 
         
               <a
-                href={`${req.issuedDocument}?fl_attachment`}
+                href={req.issuedDocument}
                 
                 target="_blank"
                 rel="noreferrer"
