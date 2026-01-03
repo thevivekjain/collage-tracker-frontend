@@ -1,7 +1,10 @@
 import { useState, useRef, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Navbar.css";
 
 function Navbar() {
+  const navigate = useNavigate();
+
   const role = localStorage.getItem("role");
   const name = localStorage.getItem("name");
 
@@ -27,18 +30,22 @@ function Navbar() {
       document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // ✅ FINAL LOGOUT (BACK BUTTON FIX)
+  // ✅ LOGOUT (BACK BUTTON SAFE)
   const logout = () => {
     if (window.confirm("Are you sure you want to logout?")) {
       localStorage.clear();
-      window.location.replace("/login");
+
+      // 🔥 IMPORTANT: history replace so BACK won't reopen dashboard
+      navigate("/", { replace: true });
     }
   };
 
   return (
     <nav className="navbar">
       {/* LOGO */}
-      <h3 className="logo">College Tracker</h3>
+      <h3 className="logo" onClick={() => role && navigate("/", { replace: true })}>
+        College Tracker
+      </h3>
 
       {/* HAMBURGER */}
       {role && (
@@ -76,7 +83,7 @@ function Navbar() {
           {role === "office" && (
             <>
               <a href="/staff/assigned">Assigned Requests</a>
-              <a href="/office/all-requests">Completed Request</a>
+              <a href="/office/all-requests">Completed Requests</a>
             </>
           )}
 
