@@ -35,3 +35,21 @@
   width: 100%;
   margin-top: 10px;
 }
+
+/* ================= MOBILE FRIENDLY ================= */
+@media (max-width: 768px) {
+  .login-card {
+    width: 92%;
+    max-width: 360px;
+    padding: 22px;
+    border-radius: 10px;
+  }
+
+  .login-card h2 {
+    font-size: 20px;
+  }
+
+  .login-subtitle {
+    font-size: 13px;
+  }
+}

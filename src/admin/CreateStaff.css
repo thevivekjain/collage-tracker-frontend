@@ -44,3 +44,29 @@
 .create-staff-card button:hover {
   background: #1d4ed8;
 }
+
+/* ================= MOBILE FRIENDLY ================= */
+@media (max-width: 768px) {
+  .create-staff-card {
+    width: 92%;
+    max-width: 360px;
+    padding: 22px;
+    border-radius: 8px;
+  }
+
+  .create-staff-card h2 {
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+
+  .create-staff-card input,
+  .create-staff-card select {
+    font-size: 13.5px;
+    padding: 9px;
+  }
+
+  .create-staff-card button {
+    padding: 9px;
+    font-size: 14px;
+  }
+}

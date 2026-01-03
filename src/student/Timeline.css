@@ -6,12 +6,15 @@
 
 .timeline-page h2 {
   margin-bottom: 10px;
+  font-size: 22px;
 }
 
+/* ===== TIMELINE LIST ===== */
 .timeline-list {
   margin-top: 20px;
 }
 
+/* ===== TIMELINE ITEM ===== */
 .timeline-item {
   background: #f9f9f9;
   border-left: 4px solid #2b7a78;
@@ -30,7 +33,7 @@
   color: #666;
 }
 
-/* Rejection highlight */
+/* ===== REJECTION HIGHLIGHT ===== */
 .reject-text {
   margin-top: 6px;
   padding: 8px;
@@ -41,7 +44,7 @@
   font-size: 13px;
 }
 
-/* Timeline link */
+/* ===== TIMELINE LINK ===== */
 .timeline-link {
   display: inline-block;
   margin-top: 10px;
@@ -52,4 +55,38 @@
 
 .timeline-link:hover {
   text-decoration: underline;
+}
+
+/* ================= MOBILE RESPONSIVE ================= */
+@media (max-width: 600px) {
+  .timeline-page {
+    padding: 14px; /* better mobile spacing */
+  }
+
+  .timeline-page h2 {
+    font-size: 20px;
+    margin-bottom: 8px;
+  }
+
+  .timeline-item {
+    padding: 10px 12px;
+  }
+
+  .timeline-item p {
+    font-size: 13px;
+  }
+
+  .timeline-item .date {
+    font-size: 11px;
+  }
+
+  .reject-text {
+    font-size: 12.5px;
+  }
+
+  .timeline-link {
+    font-size: 14px;
+    display: block;
+    margin-top: 8px;
+  }
 }

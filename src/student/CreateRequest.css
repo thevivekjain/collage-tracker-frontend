@@ -6,3 +6,12 @@
   border-radius: 10px;
   border: 1px solid var(--border-light);
 }
+
+/* ================= MOBILE ================= */
+@media (max-width: 600px) {
+  .form-container {
+    margin: 16px;
+    padding: 16px;
+    border-radius: 8px;
+  }
+}

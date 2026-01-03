@@ -66,12 +66,36 @@
   opacity: 0.9;
 }
 
-/* ===== MOBILE ===== */
+/* ================= MOBILE FRIENDLY ================= */
 @media (max-width: 600px) {
+  .manage-staff-page {
+    padding: 16px;
+  }
+
+  .manage-staff-page h2 {
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+
   .staff-item {
     flex-direction: column;
     align-items: flex-start;
-    gap: 10px;
+    gap: 8px;
+    padding: 12px 14px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  }
+
+  .staff-info {
+    font-size: 14px;
+  }
+
+  .staff-info b {
+    font-size: 15px;
+  }
+
+  .staff-role {
+    font-size: 13px;
   }
 
   .staff-action {
@@ -80,5 +104,7 @@
 
   .staff-action button {
     width: 100%;
+    padding: 10px;
+    font-size: 14px;
   }
 }

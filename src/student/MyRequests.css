@@ -1,13 +1,15 @@
 .requests-page {
   max-width: 700px;
   margin: 30px auto;
-  padding: 0 12px; /* ✅ mobile side spacing */
+  padding: 0 12px; /* mobile side spacing */
 }
 
-.nameline{
+.nameline {
   margin-bottom: 25px;
+  font-size: 22px;
 }
 
+/* ===== REQUEST CARD ===== */
 .request-card {
   background-color: var(--bg-card);
   padding: 15px;
@@ -82,6 +84,11 @@
 
 /* ================= MOBILE RESPONSIVE ================= */
 @media (max-width: 600px) {
+  .nameline {
+    font-size: 20px;
+    margin-bottom: 18px;
+  }
+
   .request-card {
     padding: 12px;
   }
@@ -98,7 +105,7 @@
   }
 
   .download-btn {
-    display: block;        /* ✅ full width button */
+    display: block;
     width: 100%;
     text-align: center;
     padding: 10px;
