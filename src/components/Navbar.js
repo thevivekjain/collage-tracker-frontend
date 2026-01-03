@@ -27,10 +27,11 @@ function Navbar() {
       document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  // ✅ FINAL LOGOUT (BACK BUTTON FIX)
   const logout = () => {
     if (window.confirm("Are you sure you want to logout?")) {
       localStorage.clear();
-      window.location.href = "/";
+      window.location.replace("/login");
     }
   };
 
@@ -63,7 +64,7 @@ function Navbar() {
             </>
           )}
 
-          {/* STAFF (except office) */}
+          {/* STAFF */}
           {(role === "clerk" ||
             role === "hod" ||
             role === "accounts" ||
@@ -91,7 +92,7 @@ function Navbar() {
         </div>
       )}
 
-      {/* PROFILE (RIGHT SIDE) */}
+      {/* PROFILE */}
       {role && (
         <div ref={profileRef} className="profile-wrapper">
           <div
