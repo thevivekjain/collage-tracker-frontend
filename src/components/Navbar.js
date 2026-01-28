@@ -14,7 +14,7 @@ function Navbar() {
   const menuRef = useRef(null);
   const profileRef = useRef(null);
 
-  // 🔒 Close menu on outside click
+  // Close menu on outside click
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (menuRef.current && !menuRef.current.contains(e.target)) {
@@ -30,7 +30,7 @@ function Navbar() {
       document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // ✅ LOGOUT (BACK SAFE)
+  // LOGOUT (BACK SAFE)
   const logout = () => {
     if (window.confirm("Are you sure you want to logout?")) {
       localStorage.clear();
