@@ -70,6 +70,7 @@
 .download-btn {
   display: inline-block;
   margin-top: 10px;
+  margin-left: 20px;
   padding: 6px 14px;
   background: #16a34a;
   color: white;
@@ -77,6 +78,7 @@
   border-radius: 6px;
   font-size: 14px;
 }
+
 
 .download-btn:hover {
   background: #15803d;

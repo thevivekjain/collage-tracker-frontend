@@ -17,6 +17,7 @@ import CreateStaff from "./admin/CreateStaff";
 import ManageStaff from "./admin/ManageStaff";
 import AllRequests from "./staff/AllRequests";
 import ManageStudents from "./admin/ManageStudents";
+import Chatbot from "./components/Chatbot";
 
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
           element={
             <ProtectedRoute allowedRoles={["student"]}>
               <CreateRequest />
+              <Chatbot/>
             </ProtectedRoute>
           }
         />
@@ -45,6 +47,7 @@ function App() {
           element={
             <ProtectedRoute allowedRoles={["student"]}>
               <MyRequests />
+              <Chatbot/>
             </ProtectedRoute>
           }
         />
@@ -54,6 +57,7 @@ function App() {
           element={
             <ProtectedRoute allowedRoles={["student"]}>
               <Timeline />
+              <Chatbot/>
             </ProtectedRoute>
           }
         />

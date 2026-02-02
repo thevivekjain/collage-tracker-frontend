@@ -59,7 +59,7 @@ function AllRequests() {
 
             {req.issuedDocument && (
               <a
-                href={`http://localhost:5000/${req.issuedDocument}`}
+                href={req.issuedDocument}
                 target="_blank"
                 rel="noreferrer"
                 className="download-btn"

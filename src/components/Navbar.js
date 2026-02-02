@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Navbar.css";
+import Chatbot from "./Chatbot";
 
 function Navbar() {
   const navigate = useNavigate();
@@ -59,6 +60,8 @@ function Navbar() {
               <span onClick={() => navigate("/student/my-requests")}>My Requests</span>
             </>
           )}
+
+          {/* {role === "student" && <Chatbot/>}  */}
 
           {(role === "clerk" ||
             role === "hod" ||

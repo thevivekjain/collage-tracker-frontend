@@ -13,6 +13,10 @@ function MyRequests() {
       .catch(() => alert("Failed to load requests"));
   }, []);
 
+  useEffect(()=>{
+    console.log(requests)
+  },[requests])
+
   return (
     <div className="requests-page">
       <h2 className="nameline">My Requests</h2>
@@ -67,8 +71,19 @@ function MyRequests() {
               >
                 Download PDF
               </a>
+              <a
+                href={`https://docs.google.com/gview?url=${encodeURIComponent(req.issuedDocument)}&embedded=true`}
+                
+                target="_blank"
+                rel="noreferrer"
+                className="download-btn"
+              >
+                View PDF
+              </a>
             </div>
           )}
+
+          
         </div>
       ))}
     </div>
