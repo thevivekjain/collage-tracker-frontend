@@ -1,7 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Navbar.css";
-import Chatbot from "./Chatbot";
 
 function Navbar() {
   const navigate = useNavigate();
