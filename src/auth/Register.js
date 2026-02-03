@@ -53,7 +53,7 @@ function Register() {
         </button>
 
         <p className="login-link">
-          Already registered? <a href="/">Login</a>
+          Already registered? <a href="/login">Login</a>
         </p>
       </div>
     </div>
