@@ -1,165 +1,206 @@
-/* ===== PAGE ===== */
-.all-requests-page {
-  padding: 24px;
-  max-width: 900px;
-  margin: 0 auto;
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+.ar-page-container {
+  max-width: 1400px;
+  margin: 40px auto;
+  padding: 0 20px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+   min-height: 500px;
 }
 
-/* ===== TITLE ===== */
-.all-requests-page h2 {
-  margin-bottom: 20px;
-  color: #0b132b;
-  font-size: 22px;
-  font-weight: 600;
-  text-align: left;
+/* HEADER SECTION */
+.ar-top-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 30px;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
-/* ===== HEADER WITH SEARCH ===== */
-.all-header {
+.ar-title-area h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #0f172a;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   gap: 12px;
-  margin-bottom: 18px;
+  margin: 0;
 }
 
-/* ===== SEARCH INPUT ===== */
-.search-input {
-  width: 180px;
-  padding: 6px 10px;
-  font-size: 13px;
-  border-radius: 6px;
-  border: 1px solid #cbd5e1;
+.ar-icon-primary { color:#a88835;}
+
+.ar-title-area p {
+  color: #64748b;
+  margin: 5px 0 0;
+  font-size: 0.95rem;
+}
+
+/* CONTROLS (SEARCH & STATS) */
+.ar-controls {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.ar-stat-chip {
+  background: #f1f5f9;
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  gap: 8px;
+}
+
+.ar-stat-count {
+  font-weight: 700;
+  color: #2563eb;
+}
+
+.ar-search-wrapper {
+  position: relative;
+  width: 280px;
+}
+
+.ar-search-icon {
+  position: absolute;
+  left: 17px;
+  top: 40%;
+  transform: translateY(-50%);
+  color: #94a3b8;
+  font-size: 0.9rem;
+}
+
+.ar-search-input {
+  width: 100%;
+  padding: 10px 15px 10px 38px;
+  border-radius: 12px;
+  border: 1.5px solid #e2e8f0;
+  background: #ffffff;
+  font-size: 0.9rem;
   outline: none;
   transition: all 0.2s ease;
 }
 
-.search-input:focus {
+.ar-search-input:focus {
   border-color: #2563eb;
-  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
 }
 
-/* ===== CARD ===== */
-.all-card {
+/* CARDS GRID */
+.ar-records-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 20px;
+}
+
+.ar-record-card {
   background: #ffffff;
-  border-radius: 12px;
-  padding: 16px 18px;
-  margin-bottom: 14px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
+  border-radius: 20px;
+  padding: 24px;
+  border: 1px solid #f1f5f9;
+  position: relative;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
 }
 
-/* ===== TEXT ===== */
-.all-card p {
-  margin: 0;
-  color: #1f2937;
-  font-size: 14px;
-  line-height: 1.4;
+.ar-record-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.1);
 }
 
-.all-card b {
-  font-size: 15px;
-  color: #111827;
-}
-
-/* ===== STATUS BADGE ===== */
-.badge {
-  display: inline-block;
-  width: fit-content;
-  margin-top: 6px;
+/* STATUS BADGE */
+.ar-status-badge {
+  position: absolute;
+  top: 24px;
+  right: 24px;
   padding: 4px 12px;
+  border-radius: 30px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.ar-status-badge.completed { background: #dcfce7; color: #166534; }
+
+/* CARD BODY */
+.ar-doc-info {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.ar-doc-icon-box {
+  width: 48px;
+  height: 48px;
+  background: #fffaef;
+  color: #a88835;
   border-radius: 12px;
-  font-size: 12px;
-  font-weight: 600;
-  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
 }
 
-.badge.completed {
-  background-color: #d4edda;
-  color: #155724;
+.ar-doc-name {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #1e293b;
+  font-weight: 700;
 }
 
-/* ===== DOWNLOAD BUTTON ===== */
-.download-btn {
-  margin-top: 10px;
-  padding: 8px 14px;
-  background: #2563eb;
-  color: white;
+.ar-purpose-text {
+  margin: 4px 0 0;
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+.ar-student-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #f8fafc;
+  padding: 10px 15px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  color: #475569;
+}
+
+.ar-small-icon { color: #94a3b8; }
+
+.ar-action-footer {
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.ar-download-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color:#1e293b;
   text-decoration: none;
-  border-radius: 8px;
-  font-size: 13px;
-  font-weight: 500;
-  width: fit-content;
-  transition: background 0.2s ease;
+  font-weight: 600;
+  font-size: 0.9rem;
 }
 
-.download-btn:hover {
-  background: #1d4ed8;
+.ar-download-link:hover { text-decoration: underline; }
+
+/* STATE MESSAGES */
+.ar-state-msg, .ar-empty-state {
+  text-align: center;
+  padding: 60px;
+  color: #94a3b8;
 }
 
-/* ===== LOADING / EMPTY ===== */
-.all-requests-page p {
-  font-size: 14px;
-  color: #374151;
-}
+.ar-empty-state svg { font-size: 3rem; margin-bottom: 10px; }
 
-/* ================= MOBILE ================= */
+/* RESPONSIVE */
 @media (max-width: 768px) {
-  .all-requests-page {
-    padding: 16px;
-  }
-
-  .all-requests-page h2 {
-    font-size: 20px;
-  }
-
-  .all-header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .search-input {
-    width: 100%;
-    font-size: 13.5px;
-    padding: 8px 12px;
-  }
-
-  .all-card {
-    padding: 14px;
-    border-radius: 10px;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.06);
-  }
-
-  .all-card p {
-    font-size: 13px;
-  }
-
-  .all-card b {
-    font-size: 14.5px;
-  }
-
-  .download-btn {
-    width: 100%;
-    text-align: center;
-    padding: 10px;
-    font-size: 14px;
-  }
-}
-
-/* ================= SMALL MOBILE ================= */
-@media (max-width: 480px) {
-  .all-card {
-    border-radius: 9px;
-  }
-
-  .badge {
-    font-size: 11px;
-    padding: 4px 10px;
-  }
-
-  .download-btn {
-    font-size: 13px;
-  }
+  .ar-top-section { flex-direction: column; align-items: flex-start; }
+  .ar-search-wrapper { width: 100%; }
+  .ar-records-grid { grid-template-columns: 1fr; }
+  .ar-status-badge { position: static; display: inline-block; margin-bottom: 15px; }
 }

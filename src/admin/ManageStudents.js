@@ -1,84 +1,117 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import api from "../api/axios";
-import "./ManageStudents.css";
+// Font Awesome 5 icons
+import { FaSearch, FaUsers } from "react-icons/fa";
+
+// Font Awesome 6 icons
+import { FaUserGraduate, FaUserCheck, FaUserXmark } from "react-icons/fa6";import "./ManageStudents.css";
 
 function ManageStudents() {
   const [students, setStudents] = useState([]);
-  const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(true);
+  const [searchTerm, setSearchTerm] = useState("");
 
-  // 🔄 Load students
   useEffect(() => {
     api.get("/admin/students")
       .then(res => setStudents(res.data))
-      .catch(() => alert("Failed to load students"))
+      .catch(() => alert("Failed to load student list"))
       .finally(() => setLoading(false));
   }, []);
 
-  // 🔁 Enable / Disable student
   const toggleStatus = async (id, isActive) => {
-  const confirmMsg = isActive
-    ? "Are you sure you want to DISABLE this student?"
-    : "Are you sure you want to ENABLE this student?";
+    const confirmMsg = isActive
+      ? "Are you sure you want to DISABLE this student?"
+      : "Are you sure you want to ENABLE this student?";
 
-  if (!window.confirm(confirmMsg)) return;
+    if (!window.confirm(confirmMsg)) return;
 
-  const url = isActive
-    ? `/admin/student/disable/${id}`
-    : `/admin/student/enable/${id}`;
+    try {
+      const url = isActive
+        ? `/admin/student/disable/${id}`
+        : `/admin/student/enable/${id}`;
 
-  await api.patch(url);
+      await api.patch(url);
 
-  setStudents(prev =>
-    prev.map(s =>
-      s._id === id ? { ...s, isActive: !isActive } : s
-    )
-  );
-};
+      setStudents(prev =>
+        prev.map(s =>
+          s._id === id ? { ...s, isActive: !isActive } : s
+        )
+      );
+    } catch {
+      alert("Action failed. Please try again.");
+    }
+  };
 
-
-  // 🔍 Search filter
-  const filtered = students.filter(s =>
-    s.name.toLowerCase().includes(search.toLowerCase()) ||
-    s.email.toLowerCase().includes(search.toLowerCase())
+  const filteredStudents = students.filter(s => 
+    s.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
+    s.email.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   return (
-    <div className="manage-page">
-      <div className="manage-header">
-        <h2>Manage Students</h2>
+    <div className="m-std-container">
+      <div className="m-std-header">
+        <div className="m-std-title-section">
+          <h2><FaUsers className="m-std-title-icon" /> Manage Students</h2>
+          <p>Total active students: {students.filter(s => s.isActive).length}</p>
+        </div>
 
-        <input
-          className="search-box"
-          placeholder="Search student..."
-          value={search}
-          onChange={e => setSearch(e.target.value)}
-        />
-      </div>
-
-      {loading && <p>Loading students...</p>}
-
-      {!loading && filtered.length === 0 && (
-        <p>No students found</p>
-      )}
-
-      <div className="student-list">
-        {filtered.map(s => (
-          <div className="student-card" key={s._id}>
-            <div>
-              <b>{s.name}</b>
-              <p>{s.email}</p>
-            </div>
-
-            <button
-              className={s.isActive ? "disable" : "enable"}
-              onClick={() => toggleStatus(s._id, s.isActive)}
-            >
-              {s.isActive ? "Disable" : "Enable"}
-            </button>
+        <div className="m-std-search-container">
+          <div className="m-std-search-box">
+            <FaSearch className="m-std-search-icon" />
+            <input 
+              type="text" 
+              placeholder="Search by name or email..." 
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="m-std-search-input"
+            />
           </div>
-        ))}
+        </div>
       </div>
+
+      {loading ? (
+        <div className="m-std-loader">Fetching Student Records...</div>
+      ) : (
+        <div className="m-std-grid">
+          {filteredStudents.length === 0 ? (
+            <div className="m-std-no-data">No students found matching your search.</div>
+          ) : (
+            filteredStudents.map((user) => (
+              <div className={`m-std-card ${!user.isActive ? 'm-std-disabled' : ''}`} key={user._id}>
+                {/* Status Badge Top Right */}
+                <span className={`m-std-role-badge-top ${user.isActive ? 'active-badge' : 'inactive-badge'}`}>
+                  {user.isActive ? "Active" : "Disabled"}
+                </span>
+                
+                <div className="m-std-card-content">
+                  <div className="m-std-avatar">
+                    {user.name.charAt(0).toUpperCase()}
+                  </div>
+                  <div className="m-std-details">
+                    <div className="m-std-name-row">
+                      <h4>{user.name}</h4>
+                      <FaUserGraduate className="m-std-badge-icon" />
+                    </div>
+                    <p className="m-std-email-text">{user.email || 'No email provided'}</p>
+                  </div>
+                </div>
+
+                <div className="m-std-actions">
+                  {user.isActive ? (
+                    <button className="m-std-btn m-std-disable-btn" onClick={() => toggleStatus(user._id, user.isActive)}>
+                      <FaUserXmark /> Disable Account
+                    </button>
+                  ) : (
+                    <button className="m-std-btn m-std-enable-btn" onClick={() => toggleStatus(user._id, user.isActive)}>
+                      <FaUserCheck /> Enable Account
+                    </button>
+                  )}
+                </div>
+              </div>
+            ))
+          )}
+        </div>
+      )}
     </div>
   );
 }

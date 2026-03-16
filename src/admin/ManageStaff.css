@@ -1,110 +1,207 @@
-/* ===== PAGE ===== */
-.manage-staff-page {
-  padding: 30px;
-  background: #f8fafc;
-  min-height: calc(100vh - 80px);
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+.ms-container {
+  /* Gaps fix: full width with safe padding */
+  width: 96%;
+  max-width: 1440px;
+  margin: 30px auto;
+  padding: 0 10px;
+  font-family: 'Inter', sans-serif;
 }
 
-.manage-staff-page h2 {
-  margin-bottom: 20px;
-  font-size: 24px;
-  font-weight: 600;
-  color: #0f172a;
-}
-
-/* ===== STAFF LIST ===== */
-.staff-item {
-  background: #ffffff;
-  padding: 14px 18px;
-  margin-bottom: 12px;
-  border-radius: 12px;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+.ms-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 35px;
+  gap: 20px;
 }
 
-/* ===== TEXT ===== */
-.staff-info {
-  font-size: 15px;
-  color: #1e293b;
+.ms-title-icon {
+  color: #6366f1; /* Secondary Indigo */
+  margin-right: 12px;
 }
 
-.staff-info b {
-  font-size: 16px;
-  color: #0f172a;
+.ms-title-section h2 {
+  font-size: 1.7rem;
+  color: #0f172a; /* Primary Navy */
+  margin: 0;
+  display: flex;
+  align-items: center;
 }
 
-.staff-role {
-  text-transform: capitalize;
+.ms-title-section p {
   color: #64748b;
-  font-size: 14px;
-  margin-left: 6px;
+  font-size: 0.9rem;
+  margin-top: 5px;
 }
 
-/* ===== BUTTONS ===== */
-.staff-action button {
-  padding: 7px 14px;
+/* SEARCH BAR - IMPROVED */
+.ms-search-container {
+  flex: 1;
+  max-width: 400px;
+}
+
+.ms-search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.ms-search-icon {
+  position: absolute;
+   left: 18px;
+  bottom: 27px;
+  color: #94a3b8;
+  font-size: 0.9rem;
+}
+
+.ms-search-input {
+  width: 100%;
+  padding: 12px 16px 12px 48px;
+  border-radius: 12px;
+  border: 1.5px solid #e2e8f0;
+  font-size: 0.95rem;
+  background: #ffffff;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.ms-search-input:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+  background: #fff;
+}
+
+/* GRID LAYOUT */
+.ms-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 24px;
+}
+
+/* CARD STYLING */
+.ms-card {
+  position: relative; /* For top-right role positioning */
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 24px;
+  border: 1px solid #f1f5f9;
+  box-shadow: 0 4px 15px rgba(15, 23, 42, 0.05);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ms-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.1);
+}
+
+/* ROLE BADGE - TOP RIGHT */
+.ms-role-badge-top {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #f1f5f9;
+  color: #475569;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: 1px solid #e2e8f0;
+}
+
+.ms-card-content {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.ms-avatar {
+  width: 52px;
+  height: 52px;
+  background: #eef2ff;
+  color: #6366f1;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.ms-name-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ms-name-row h4 {
+  margin: 0;
+  color: #0f172a;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.ms-badge-icon {
+  color: #f59e0b;
+  font-size: 0.9rem;
+}
+
+.ms-email-text {
+  font-size: 0.85rem;
+  color: #64748b;
+  margin: 4px 0 0 0;
+}
+
+/* ACTIONS */
+.ms-actions {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.ms-btn {
+  width: 100%;
+  padding: 11px;
+  border-radius: 10px;
   border: none;
-  border-radius: 8px;
-  font-size: 13px;
+  font-weight: 600;
+  font-size: 0.9rem;
   cursor: pointer;
-  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background 0.2s;
 }
 
-.disable-btn {
-  background: #ef4444;
-  color: #ffffff;
-}
+.ms-disable-btn { background: #fee2e2; color: #dc2626; }
+.ms-disable-btn:hover { background: #f20101de;color: white; }
 
-.enable-btn {
-  background: #22c55e;
-  color: #ffffff;
-}
+.ms-enable-btn { background: #dcfce7; color: #084b20; }
+.ms-enable-btn:hover { background: #0d4e24; color: white;}
 
-.staff-action button:hover {
-  opacity: 0.9;
-}
+/* .ms-card.ms-disabled {
+  opacity: 0.7;
+  background: #f8fafc;
+} */
 
-/* ================= MOBILE FRIENDLY ================= */
-@media (max-width: 600px) {
-  .manage-staff-page {
-    padding: 16px;
-  }
-
-  .manage-staff-page h2 {
-    font-size: 20px;
-    margin-bottom: 16px;
-  }
-
-  .staff-item {
+/* MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+  .ms-header {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-    padding: 12px 14px;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    align-items: stretch;
+  }
+  
+  .ms-search-container {
+    max-width: 100%;
   }
 
-  .staff-info {
-    font-size: 14px;
-  }
-
-  .staff-info b {
-    font-size: 15px;
-  }
-
-  .staff-role {
-    font-size: 13px;
-  }
-
-  .staff-action {
-    width: 100%;
-  }
-
-  .staff-action button {
-    width: 100%;
-    padding: 10px;
-    font-size: 14px;
+  .ms-grid {
+    grid-template-columns: 1fr;
   }
 }

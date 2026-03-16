@@ -1,0 +1,127 @@
+:root {
+    --abt-navy: #0d1b2a;
+    --abt-dark: #1b263b;
+    --abt-gold:  #a88835; 
+    --abt-white: #f6faff;
+    --abt-pure: #ffffff;
+    --abt-font: 'Plus Jakarta Sans', sans-serif;
+}
+
+.abt-vivek-page-wrapper {
+    font-family: var(--abt-font);
+    background-color: var(--abt-white);
+    color: var(--abt-navy);
+}
+
+/* STICKY NAVBAR */
+.abt-vivek-nav-container {
+    position: sticky;
+    top: 0;
+    z-index: 2000;
+    width: 100%;
+    background: var(--abt-navy); /* Adjust based on navbar height */
+}
+
+/* HERO */
+.abt-vivek-hero {
+    height: 40vh;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 120px;
+    text-align: center;
+    color: white;
+    padding: 0 20px;
+}
+.abt-vivek-hero-content{
+    max-width: 850;
+    padding: 0 20px;
+    margin-top: 0;
+}
+
+.abt-vivek-hero-subtitle{
+    display: block;
+    margin-bottom: 15px;
+    margin-top: 20px;
+    color:var(--abt-gold) ;
+    letter-spacing: 4px;
+    font-weight: 800;
+}
+.abt-vivek-hero h1 {  font-size: 3rem; font-weight: 800; margin: 10px 0;color: rgb(255, 255, 255);}
+.abt-vivek-hero p { opacity: 0.8; font-size: 1.1rem;color: #b0b0b0;}
+
+/* FLOATING CARDS */
+.abt-vivek-stats-section { padding: 0 20px; margin-top: -60px; position: relative; z-index: 100; }
+.abt-vivek-stats-grid { 
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; 
+    max-width: 1200px; margin: 0 auto; 
+}
+.abt-vivek-stat-card {
+    background: var(--abt-pure); padding: 40px 25px; border-radius: 20px;
+    text-align: center; box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.abt-vivek-stat-card.active { border-bottom: 5px solid var(--abt-gold); }
+.abt-vivek-stat-card:hover { transform: translateY(-15px); }
+
+/* INTRO */
+.abt-vivek-container { max-width: 1200px; margin: 0 auto; padding: 0 25px; }
+.abt-vivek-intro { padding: 100px 0 60px; }
+.abt-vivek-section-title { font-size: 2.5rem; font-weight: 800; text-align: center; margin-bottom: 40px; }
+.abt-vivek-section-title.gold { color: var(--abt-gold); }
+.abt-vivek-intro-flex { display: flex; gap: 40px; }
+.abt-vivek-intro-flex p { flex: 1; font-size: 1.1rem; line-height: 1.8; opacity: 0.8; }
+
+/* FEATURE CARDS (THE ONES YOU ASKED FOR) */
+.abt-vivek-features-section { padding: 20px 0; background: #f6faff;}
+.abt-vivek-features-grid { 
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; 
+}
+.abt-vivek-feature-card {
+    background: white; padding: 40px 30px; border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05); border: 1px solid rgba(0,0,0,0.05);
+    transition: 0.3s; position: relative; overflow: hidden;
+}
+.abt-vivek-feature-card:hover { transform: scale(1.03); border-color: var(--abt-gold); }
+.feat-icon-wrapper { 
+    width: 60px; height: 60px; background: var(--abt-navy); 
+    color: var(--abt-gold); display: flex; align-items: center; 
+    justify-content: center; border-radius: 12px; font-size: 1.8rem; margin-bottom: 20px;
+}
+.abt-vivek-feature-card h3 { font-size: 1.3rem; margin-bottom: 12px; font-weight: 800; }
+.abt-vivek-feature-card p { font-size: 0.95rem; line-height: 1.5; color: #555; }
+
+/* SYSTEM ECOSYSTEM */
+.abt-vivek-roles-section { background: var(--abt-navy); padding: 50px 0; color: white;margin-left: 40px;margin-right: 40px;border-radius: 32px;margin-top: 50px; }
+.abt-vivek-roles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+.abt-vivek-role-card {
+    background: rgba(255,255,255,0.03); padding: 20px; border-radius: 25px;
+    border: 1px solid rgba(255,255,255,0.08); text-align: center;
+}
+.abt-vivek-role-card.highlighted { background: rgba(181, 164, 33, 0.08); border-color: var(--abt-gold); }
+.role-main-icon { font-size: 3rem; color: var(--abt-gold); margin-bottom: 20px; }
+.abt-vivek-role-card h3 { font-size: 1.5rem; margin-bottom: 15px;color: white; }
+
+/* PRIVACY BOX */
+.abt-vivek-privacy-box {
+    background: var(--abt-gold); color: var(--abt-navy);
+    padding: 20px 40px; border-radius: 30px; text-align: center;
+    max-width: 700px; margin: 80px auto;
+}
+.abt-vivek-privacy-box svg { font-size: 3.5rem; margin-bottom: 20px; }
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+    .abt-vivek-features-grid, .abt-vivek-stats-grid, .abt-vivek-roles-grid { grid-template-columns: repeat(2, 1fr); }
+    .abt-vivek-intro-flex { flex-direction: column; gap: 20px; }
+}
+
+@media (max-width: 768px) {
+    .abt-vivek-features-grid, .abt-vivek-stats-grid, .abt-vivek-roles-grid { grid-template-columns: 1fr; }
+    .abt-vivek-hero { height: auto; padding: 20px 20px 100px; }
+    .abt-vivek-hero h1 { font-size: 2.2rem; }
+    .abt-vivek-section-title { font-size: 1rem; }
+}

@@ -1,10 +1,11 @@
-import { useState, useRef, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState, useRef, useEffect } from "react";
+import { useNavigate, Link } from "react-router-dom";
+import { HiMenuAlt3, HiX } from "react-icons/hi";
+import { FaUserCircle, FaSignOutAlt, FaShieldAlt } from "react-icons/fa";
 import "./Navbar.css";
 
 function Navbar() {
   const navigate = useNavigate();
-
   const role = localStorage.getItem("role");
   const name = localStorage.getItem("name");
 
@@ -14,23 +15,15 @@ function Navbar() {
   const menuRef = useRef(null);
   const profileRef = useRef(null);
 
-  // Close menu on outside click
   useEffect(() => {
     const handleClickOutside = (e) => {
-      if (menuRef.current && !menuRef.current.contains(e.target)) {
-        setMenuOpen(false);
-      }
-      if (profileRef.current && !profileRef.current.contains(e.target)) {
-        setProfileOpen(false);
-      }
+      if (menuRef.current && !menuRef.current.contains(e.target)) setMenuOpen(false);
+      if (profileRef.current && !profileRef.current.contains(e.target)) setProfileOpen(false);
     };
-
     document.addEventListener("mousedown", handleClickOutside);
-    return () =>
-      document.removeEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // LOGOUT (BACK SAFE)
   const logout = () => {
     if (window.confirm("Are you sure you want to logout?")) {
       localStorage.clear();
@@ -39,80 +32,87 @@ function Navbar() {
   };
 
   return (
-    <nav className="navbar">
-      <h3 className="logo">College Tracker</h3>
+    <nav className="ct-navbar">
+      <div className="ct-nav-container">
+        {/* LEFT: Logo */}
+        <h3 className="ct-logo" onClick={() => navigate("/")}>
+          College<span>Tracker</span>
+        </h3>
 
-      {role && (
-        <div className="menu-icon" onClick={() => setMenuOpen(!menuOpen)}>
-          ☰
-        </div>
-      )}
-
-      {role && (
-        <div
-          ref={menuRef}
-          className={`nav-links ${menuOpen ? "open" : ""}`}
-        >
-          {role === "student" && (
+        {/* MIDDLE: Dynamic Links */}
+        <div ref={menuRef} className={`ct-nav-links ${menuOpen ? "ct-open" : ""}`}>
+          {!role ? (
             <>
-              <span onClick={() => navigate("/student/create")}>Create Request</span>
-              <span onClick={() => navigate("/student/my-requests")}>My Requests</span>
+              <Link to="/" onClick={() => setMenuOpen(false)}>Home</Link>
+              <a href="/about" onClick={() => setMenuOpen(false)}>About Us</a>
+              <a href="/contact" onClick={() => setMenuOpen(false)}>Contact Us</a>
+              <button className="ct-signin-btn ct-mobile-only" onClick={() => navigate("/login")}>Sign In</button>
             </>
-          )}
-
-          {/* {role === "student" && <Chatbot/>}  */}
-
-          {(role === "clerk" ||
-            role === "hod" ||
-            role === "accounts" ||
-            role === "principal") && (
-            <span onClick={() => navigate("/staff/assigned")}>
-              Assigned Requests
-            </span>
-          )}
-
-          {role === "office" && (
+          ) : (
             <>
-              <span onClick={() => navigate("/staff/assigned")}>
-                Assigned Requests
-              </span>
-              <span onClick={() => navigate("/office/all-requests")}>
-                Completed Requests
-              </span>
-            </>
-          )}
-
-          {role === "admin" && (
-            <>
-              <span onClick={() => navigate("/admin/dashboard")}>Dashboard</span>
-              <span onClick={() => navigate("/admin/create-staff")}>Create Staff</span>
-              <span onClick={() => navigate("/admin/manage-staff")}>Manage Staff</span>
-              <span onClick={() => navigate("/admin/manage-students")}>Manage Students</span>
+              {role === "student" && (
+                <>
+                  <span onClick={() => {navigate("/student/my-requests"); setMenuOpen(false)}}>My Requests</span>
+                  <span onClick={() => {navigate("/student/create"); setMenuOpen(false)}}>Create Request</span>
+                </>
+              )}
+              {["clerk", "hod", "accounts", "principal"].includes(role) && (
+                <span onClick={() => {navigate("/staff/assigned"); setMenuOpen(false)}}>Assigned Requests</span>
+              )}
+              {role === "office" && (
+                <>
+                  <span onClick={() => {navigate("/staff/assigned"); setMenuOpen(false)}}>Assigned Requests</span>
+                  <span onClick={() => {navigate("/office/all-requests"); setMenuOpen(false)}}>Completed Requests</span>
+                </>
+              )}
+              {role === "admin" && (
+                <>
+                  <span onClick={() => {navigate("/admin/dashboard"); setMenuOpen(false)}}>Dashboard</span>
+                  <span onClick={() => {navigate("/admin/create-staff"); setMenuOpen(false)}}>Create Staff</span>
+                  <span onClick={() => {navigate("/admin/manage-staff"); setMenuOpen(false)}}>Manage Staff</span>
+                  <span onClick={() => {navigate("/admin/manage-students"); setMenuOpen(false)}}>Manage Students</span>
+                </>
+              )}
             </>
           )}
         </div>
-      )}
 
-      {role && (
-        <div ref={profileRef} className="profile-wrapper">
-          <div
-            className="profile-box"
-            onClick={() => setProfileOpen(!profileOpen)}
-          >
-            <div className="profile-icon">
-              {name ? name.charAt(0).toUpperCase() : "U"}
+        {/* RIGHT: Auth/Profile */}
+        <div className="ct-nav-right">
+          {!role ? (
+            <button className="ct-signin-btn ct-desktop-only" onClick={() => navigate("/login")}>
+              Sign In
+            </button>
+          ) : (
+            <div ref={profileRef} className="ct-profile-wrapper">
+              <div className="ct-profile-box" onClick={() => setProfileOpen(!profileOpen)}>
+                <FaUserCircle className="ct-user-icon" />
+                <span className="ct-profile-name">{name || "User"}</span>
+              </div>
+
+              {profileOpen && (
+                <div className="ct-profile-dropdown">
+                  <div className="ct-dropdown-header">
+                    <FaShieldAlt className="ct-role-icon" />
+                    <div className="ct-user-meta">
+                      <p className="ct-user-n">{name}</p>
+                      <p className="ct-user-r">{role}</p>
+                    </div>
+                  </div>
+                  <div className="ct-divider"></div>
+                  <button className="ct-logout-btn" onClick={logout}>
+                    <FaSignOutAlt /> Logout
+                  </button>
+                </div>
+              )}
             </div>
-            <span className="profile-name">{name}</span>
+          )}
+
+          <div className="ct-menu-icon" onClick={() => setMenuOpen(!menuOpen)}>
+            {menuOpen ? <HiX /> : <HiMenuAlt3 />}
           </div>
-
-          {profileOpen && (
-            <div className="profile-dropdown">
-              <p className="profile-role">{role}</p>
-              <button onClick={logout}>Logout</button>
-            </div>
-          )}
         </div>
-      )}
+      </div>
     </nav>
   );
 }

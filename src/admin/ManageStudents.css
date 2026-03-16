@@ -1,132 +1,214 @@
-/* ===== PAGE ===== */
-.manage-page {
-  padding: 24px;
-  max-width: 1100px;
-  margin: auto;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+.m-std-container {
+  width: 96%;
+  max-width: 1440px;
+  margin: 30px auto;
+  padding: 0 10px;
+  font-family: 'Inter', sans-serif;
 }
 
-/* ===== HEADER ===== */
-.manage-header {
+.m-std-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 35px;
+  gap: 20px;
+}
+
+.m-std-title-icon {
+  color: #6366f1;
+  margin-right: 12px;
+}
+
+.m-std-title-section h2 {
+  font-size: 1.7rem;
+  color: #0f172a;
+  margin: 0;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  margin-bottom: 20px;
-  flex-wrap: wrap;
-  gap: 12px;
 }
 
-.manage-header h2 {
-  margin: 0;
-  font-size: 22px;
-  font-weight: 600;
-  color: #0f172a;
+.m-std-title-section p {
+  color: #64748b;
+  font-size: 0.9rem;
+  margin-top: 5px;
 }
 
-/* ===== SEARCH (LEFT SMALL) ===== */
-.search-box {
-  width: 220px;
-  padding: 8px 12px;
-  font-size: 14px;
-  border-radius: 8px;
-  border: 1px solid #cbd5e1;
+/* SEARCH BAR */
+.m-std-search-container {
+  flex: 1;
+  max-width: 400px;
+}
+
+.m-std-search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.m-std-search-icon {
+  position: absolute;
+  left: 18px;
+  bottom: 27px;
+  color: #94a3b8;
+  font-size: 0.9rem;
+}
+
+.m-std-search-input {
+  width: 100%;
+  padding: 12px 16px 12px 48px;
+  border-radius: 12px;
+  border: 1.5px solid #e2e8f0;
+  font-size: 0.95rem;
+  background: #ffffff;
+  transition: all 0.3s ease;
   outline: none;
 }
 
-.search-box:focus {
-  border-color: #2563eb;
+.m-std-search-input:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+  background: #fff;
 }
 
-/* ===== STUDENT LIST ===== */
-.student-list {
+/* GRID LAYOUT */
+.m-std-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 24px;
+}
+
+/* CARD STYLING */
+.m-std-card {
+  position: relative;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 24px;
+  border: 1px solid #f1f5f9;
+  box-shadow: 0 4px 15px rgba(15, 23, 42, 0.05);
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* ===== STUDENT CARD ===== */
-.student-card {
-  background: #ffffff;
-  padding: 16px 18px;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+.m-std-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.1);
+}
+
+/* STATUS BADGE - TOP RIGHT */
+.m-std-role-badge-top {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: 1px solid #e2e8f0;
+}
+
+.active-badge { background: #f0fdf4; color: #16a34a; }
+.inactive-badge { background: #f1f5f9; color: #475569; }
+
+.m-std-card-content {
   display: flex;
-  justify-content: space-between;
+  gap: 16px;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 10px;
 }
 
-.student-card b {
-  font-size: 15px;
+.m-std-avatar {
+  width: 52px;
+  height: 52px;
+  background: #eef2ff;
+  color: #6366f1;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.m-std-name-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.m-std-name-row h4 {
+  margin: 0;
   color: #0f172a;
+  font-size: 1.1rem;
+  font-weight: 600;
 }
 
-.student-card p {
-  margin: 4px 0 0;
-  font-size: 13px;
-  color: #475569;
+.m-std-badge-icon {
+  color: #6366f1; /* Student Graduation Icon Color */
+  font-size: 0.9rem;
 }
 
-/* ===== BUTTONS ===== */
-.student-card button {
-  padding: 6px 14px;
-  font-size: 13px;
+.m-std-email-text {
+  font-size: 0.85rem;
+  color: #64748b;
+  margin: 4px 0 0 0;
+}
+
+/* ACTIONS */
+.m-std-actions {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.m-std-btn {
+  width: 100%;
+  padding: 11px;
+  border-radius: 10px;
   border: none;
-  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: 0.3s;
 }
 
-.student-card button.disable {
-  background: #ef4444;
-  color: white;
+.m-std-disable-btn { background: #fee2e2; color: #dc2626; }
+.m-std-disable-btn:hover { background: #f10000;color: white; }
+
+.m-std-enable-btn { background: #dcfce7; color: #0f592a; }
+.m-std-enable-btn:hover { background: #174d2a; color: white;}
+/* 
+.m-std-card.m-std-disabled {
+  opacity: 0.7;
+  background: #f8fafc;
+} */
+
+.m-std-loader, .m-std-no-data {
+  text-align: center;
+  padding: 40px;
+  color: #64748b;
+  font-weight: 500;
 }
 
-.student-card button.enable {
-  background: #22c55e;
-  color: white;
-}
-
-/* ================= MOBILE FRIENDLY ================= */
-@media (max-width: 600px) {
-  .manage-page {
-    padding: 16px;
-  }
-
-  .manage-header {
+/* MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+  .m-std-header {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
+    align-items: stretch;
+  }
+  
+  .m-std-search-container {
+    max-width: 100%;
   }
 
-  .manage-header h2 {
-    font-size: 20px;
-  }
-
-  .search-box {
-    width: 100%;
-    font-size: 13.5px;
-    padding: 9px 12px;
-  }
-
-  .student-card {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 14px;
-    border-radius: 10px;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.06);
-  }
-
-  .student-card b {
-    font-size: 14.5px;
-  }
-
-  .student-card p {
-    font-size: 12.5px;
-  }
-
-  .student-card button {
-    width: 100%;
-    padding: 10px;
-    font-size: 14px;
+  .m-std-grid {
+    grid-template-columns: 1fr;
   }
 }

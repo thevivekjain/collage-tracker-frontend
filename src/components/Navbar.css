@@ -1,219 +1,232 @@
-/* ================= FADE IN ANIMATION ================= */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+:root {
+  --ct-navy: #0F172A;
+  --ct-indigo: #a88835;
+  --ct-white: #ffffff;
+  --ct-slate: #94a3b8;
 }
 
-/* ================= NAVBAR ================= */
-.navbar {
-  background: #0b132b;
-  color: #ffffff;
-  padding: 18px 26px;
+.ct-navbar {
+  background: var(--ct-navy);
+  height: 75px;
   display: flex;
   align-items: center;
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.45);
+  padding: 0 2rem;
+  font-family: 'Poppins', sans-serif;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
 
-  opacity: 0;
-  animation: fadeIn 0.6s ease forwards;
+.ct-nav-container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 /* LOGO */
-.logo {
-  font-size: 22px;
-  font-weight: 600;
-  letter-spacing: 0.4px;
-  color: aliceblue;
+.ct-logo {
+  color: var(--ct-white);
+  font-size: 1.4rem;
+  font-weight: 700;
   cursor: pointer;
+  flex: 1;
+  /* margin-left: -100px; */
 }
+.ct-logo span { color: var(--ct-indigo); }
 
-/* ================= NAV LINKS ================= */
-.nav-links {
+/* LINKS */
+.ct-nav-links {
   display: flex;
-  gap: 22px;
-  margin-left: 30px;
+  gap: 2rem;
+  flex: 2;
+  justify-content: center;
 }
-
-.nav-links a {
+.ct-nav-links a, .ct-nav-links span {
+  color: var(--ct-white);
   text-decoration: none;
-  color: #f1f5f9;
-  font-size: 15.5px;
   font-weight: 500;
-  position: relative;
-  transition: color 0.25s ease;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+.ct-nav-links a:hover, .ct-nav-links span:hover {
+  color: var(--ct-indigo);
 }
 
-.nav-links a:hover {
-  color: #60a5fa;
+/* SIGN IN BUTTON (Border-to-Fill) */
+.ct-signin-btn {
+  background: transparent;
+  color: var(--ct-indigo);
+  border: 2px solid var(--ct-indigo);
+  padding: 6px 18px;
+  border-radius: 1px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+.ct-signin-btn:hover {
+  background: var(--ct-indigo);
+  color: var(--ct-white);
+  box-shadow: 0 0 15px rgba(99, 102, 241, 0.4);
 }
 
-.nav-links a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -4px;
-  width: 0%;
-  height: 2px;
-  background: #60a5fa;
-  transition: width 0.3s ease;
-}
-
-.nav-links a:hover::after {
-  width: 100%;
-}
-
-/* ================= PROFILE ================= */
-.profile-wrapper {
-  margin-left: auto;
-  position: relative;
-}
-
-.profile-box {
+/* PROFILE */
+.ct-nav-right {
   display: flex;
   align-items: center;
-  gap: 10px;
+  justify-content: flex-end;
+  gap: 1rem;
+  flex: 1;
+  /* margin-right: -100px; */
+}
+
+.ct-profile-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 6px 14px;
+  border-radius: 50px;
   cursor: pointer;
-  padding: 6px 12px;
-  border-radius: 10px;
-  background: rgba(255,255,255,0.08);
-  transition: background 0.2s ease, transform 0.2s ease;
+  transition: 0.3s;
+}
+.ct-profile-box:hover { background: rgba(255, 255, 255, 0.15); }
+.ct-user-icon { font-size: 1.5rem; color: var(--ct-indigo); }
+.ct-profile-name { color: var(--ct-white); font-size: 0.9rem; font-weight: 500; }
+
+/* PROFILE POPUP UI */
+.ct-profile-dropdown {
+  position: absolute;
+  right: 20px;
+  top: 80px;
+  background: var(--ct-white);
+  width: 230px;
+  border-radius: 12px;
+  padding: 1.2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  animation: ctFadeIn 0.3s ease-out;
 }
 
-.profile-box:hover {
-  background: rgba(255,255,255,0.15);
-  transform: translateY(-1px);
+.ct-dropdown-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
 }
+.ct-role-icon { font-size: 2rem; color: var(--ct-navy); }
+.ct-user-meta .ct-user-n { font-weight: 700; color: var(--ct-navy); margin: 0; font-size: 1rem; }
+.ct-user-meta .ct-user-r { font-size: 0.75rem; color: var(--ct-indigo); text-transform: uppercase; font-weight: 600; margin: 0; }
 
-.profile-icon {
-  width: 36px;
-  height: 36px;
-  background: #3b82f6;
-  color: white;
-  font-weight: 600;
-  border-radius: 50%;
+.ct-divider { height: 1px; background: #e2e8f0; margin: 12px 0; }
+
+.ct-logout-btn {
+  width: 100%;
+  background: #fff1f2;
+  color: #e11d48;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.profile-name {
-  font-size: 14px;
+  gap: 8px;
   font-weight: 600;
+  transition: 0.3s;
+}
+.ct-logout-btn:hover { background: #ffe4e6; }
+
+@keyframes ctFadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-/* ================= DROPDOWN ================= */
-.profile-dropdown {
-  position: absolute;
-  right: 0;
-  top: 52px;
-  background: #111827;
-  border-radius: 10px;
-  padding: 10px;
-  min-width: 160px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-  opacity: 0;
-  animation: fadeIn 0.25s ease forwards;
-}
+/* RESPONSIVE */
+.ct-menu-icon { display: none; color: var(--ct-white); font-size: 1.8rem; cursor: pointer; }
+.ct-mobile-only { display: none; }
+/* ================= UPDATED RESPONSIVENESS ================= */
 
-.profile-role {
-  font-size: 13px;
-  color: #cbd5e1;
-  margin-bottom: 8px;
-  text-transform: capitalize;
-}
-
-.profile-dropdown button {
-  width: 100%;
-  padding: 8px;
-  border: none;
-  border-radius: 6px;
-  background: #ef4444;
-  color: white;
-  cursor: pointer;
-}
-
-.profile-dropdown button:hover {
-  background: #dc2626;
-}
-
-/* ================= HAMBURGER ================= */
-.menu-icon {
-  display: none;
-  font-size: 26px;
-  margin-left: auto;
-  cursor: pointer;
-}
-
-/* ================= MOBILE POLISH ================= */
-@media (max-width: 768px) {
-
-  .navbar {
-    padding: 14px 18px;
+@media (max-width: 968px) {
+  /* Basic adjustments */
+  .ct-menu-icon { 
+    display: block; 
+    font-size: 28px;
+    color: #ffffff; 
+    z-index: 1100; /* Sidebar ke upar dikhega */
+    cursor: pointer;
   }
+  
+  .ct-desktop-only { display: none; }
+  .ct-profile-name { display: none; }
 
-  .logo {
-    font-size: 18px;   /* 🔥 mobile friendly */
-  }
-
-  .menu-icon {
-    display: block;
-    font-size: 24px;
-  }
-
-  .nav-links {
-    position: absolute;
-    top: 64px;
-    left: 0;
-    width: 100%;
-    background: #0b132b;
+  /* SIDEBAR MENU (WHITE & HALF SPACE) */
+  .ct-nav-links {
+    position: fixed; /* Poori screen par fix rahega */
+    top: 0;
+    right: -100%;    /* Pehle right se bahar rahega */
+    width: 40%;      /* ✅ Sirf 60% space lega */
+    height: 100vh;
+    background: #ffffff; /* ✅ Background White */
     flex-direction: column;
-    padding: 14px 20px;
-    gap: 14px;
-    display: none;
-    opacity: 0;
+    padding: 80px 30px; /* Top se thoda space taaki icons clear dikhein */
+    gap: 20px;
+    transition: 0.4s ;
+    z-index: 1000;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.15);
+    justify-content: flex-start;
+    align-items: flex-start; /* Left align text */
   }
 
-  .nav-links.open {
-    display: flex;
-    opacity: 1;
+  /* Menu Open State */
+  .ct-nav-links.ct-open { 
+    right: 0; /* ✅ Right side se andar aayega */
   }
 
-  .nav-links a {
-    font-size: 14px;   
-    padding: 6px 0;
+  /* Links Styling inside White Sidebar */
+  .ct-nav-links span, 
+  .ct-nav-links a {
+    color: #1e293b !important; /* ✅ Dark Text color */
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-decoration: none;
+    width: 100%;
+    border-bottom: 1px solid #f1f5f9;
+    padding-bottom: 12px;
+    display: block;
+    text-align: left;
   }
 
-  .profile-wrapper {
-    margin-left: 8px;
+  .ct-nav-links span:hover, 
+  .ct-nav-links a:hover {
+    color: #2563eb !important;
+    padding-left: 5px; /* Halka sa animation */
   }
 
-  .profile-box {
-    padding: 5px 10px;
+  /* Mobile Sign In Button */
+  .ct-mobile-only { 
+    display: block; 
+    width: 100%; 
+    margin-top: 1rem;
+    background: #1e293b;
+    color: #ffffff !important;
+    border: none;
+    padding: 14px;
+    border-radius: 10px;
+    font-weight: 700;
+    text-align: center;
   }
+}
 
-  .profile-icon {
-    width: 30px;
-    height: 30px;
-    font-size: 13px;
-  }
-
-  .profile-name {
-    font-size: 12.5px;
-  }
-
-  .profile-dropdown {
-    position: absolute;
-    right: 10px;
-    top: 60px;
-    width: calc(100% - 20px);
-    max-width: 260px;
-    z-index: 2000;
-  }
-
-  .profile-dropdown button {
-    padding: 7px;
-    font-size: 13px;
+/* Chote mobile screens ke liye width adjustment */
+@media (max-width: 480px) {
+  .ct-nav-links {
+    width: 75%; /* Bahut chote phone par thoda zyada space */
   }
 }

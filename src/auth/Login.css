@@ -1,55 +1,224 @@
-.login-page {
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+.auth-container {
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--bg-main);
+  background: linear-gradient(135deg, #e8ecff 0%, #fffdf0 100%); /* Premium Gradient */
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  padding: 20px;
 }
 
-.login-card {
-  width: 360px;
-  padding: 30px;
-  background-color: var(--bg-card);
-  border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-  border: 1px solid var(--border-light);
+.auth-split-card {
+  width: 900px;
+  max-width: 100%;
+  min-height: 400px;
+  background: #ffffff;
+  display: flex;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
 }
 
-.login-card h2 {
+/* LEFT SIDE - IMAGE (1/2) */
+.auth-image-side {
+  flex: 1.1; /* Approx 1/2 but slightly wider for visual balance */
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+}
+
+.image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(79, 70, 229, 0.4), rgba(30, 27, 75, 0.9)); /* Color Overlay */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
   text-align: center;
+}
+
+.overlay-content {
+  color: #ffffff;
+}
+
+.overlay-icon {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2));
+}
+
+.overlay-content h3 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  font-weight: 700;
+  color: white;
+}
+
+.overlay-content p {
+  font-size: 1rem;
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
+/* RIGHT SIDE - FORM (1/2) */
+.auth-form-side {
+  flex: 1;
+  padding: 30px 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #ffffff;
+}
+
+.form-header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.form-avatar {
+  font-size: 3.5rem;
+  color: #a88835;
   margin-bottom: 5px;
 }
 
-.login-subtitle {
-  text-align: center;
-  margin-bottom: 20px;
-  color: var(--text-muted);
-  font-size: 14px;
+.form-header h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 8px;
 }
 
-.login-card input {
-  margin-bottom: 14px;
+.form-header p {
+  color: #64748b;
+  font-size: 0.9rem;
 }
 
-.login-btn {
+/* INPUT GROUPS */
+.input-group {
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.input-icon {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #94a3b8;
+  font-size: 1rem;
+}
+
+.input-group input {
   width: 100%;
-  margin-top: 10px;
+  padding: 14px 15px 14px 45px;
+  border-radius: 12px;
+  border: 1.5px solid #e2e8f0;
+  background-color: #f8fafc;
+  font-size: 0.95rem;
+  outline: none;
+  transition: all 0.2s ease;
 }
 
-/* ================= MOBILE FRIENDLY ================= */
-@media (max-width: 768px) {
-  .login-card {
-    width: 92%;
-    max-width: 360px;
-    padding: 22px;
-    border-radius: 10px;
+.input-group input:focus {
+  border-color: #4f46e5;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
+}
+
+/* BUTTON */
+.auth-btn {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #1e293b 0%, #395177 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+  box-shadow: 0 10px 15px -3px rgba(168, 168, 168, 0.573);
+}
+
+.auth-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 25px -5px rgba(110, 110, 110, 0.418);
+}
+
+.auth-footer-link {
+  text-align: center;
+  margin-top: 25px;
+  font-size: 0.9rem;
+  color: #64748b;
+}
+
+.auth-footer-link a {
+  color: #4f46e5;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.auth-footer-link a:hover {
+  text-decoration: underline;
+}
+
+/* ================= MOBILE & TABLET ================= */
+@media (max-width: 850px) {
+  .auth-split-card {
+    flex-direction: column; /* Image upar aur content niche aayega */
+    width: 95%;             /* Mobile screen ke hisab se width */
+    max-width: 450px;
+    min-height: auto;
+  }
+  
+  .auth-image-side {
+    display: flex;          /* Image ko wapas dikhane ke liye */
+    flex: none;             /* Side-by-side flex ratio hatane ke liye */
+    width: 100%;
+    height: 220px;          /* Mobile par image ki height */
   }
 
-  .login-card h2 {
-    font-size: 20px;
+  .image-overlay {
+    padding: 20px;          /* Overlay padding kam karein */
   }
 
-  .login-subtitle {
-    font-size: 13px;
+  .overlay-icon {
+    font-size: 2rem;        /* Icon size chota karein */
+    margin-bottom: 10px;
+  }
+
+  .overlay-content h3 {
+    font-size: 1.3rem;
+  }
+
+  .overlay-content p {
+    font-size: 0.85rem;
+    display: none;          /* Text zyada bada ho toh hide kr skte hain */
+  }
+
+  .auth-form-side {
+    padding: 30px 20px;     /* Content ke side gaps kam karein */
+    width: 100%;
+  }
+
+  .form-header {
+    margin-bottom: 20px;
+  }
+
+  .form-avatar {
+    font-size: 2.5rem;
+  }
+}
+
+/* Chote mobile phones ke liye extra adjustment */
+@media (max-width: 480px) {
+  .auth-image-side {
+    height: 180px;         /* Aur thoda height kam */
   }
 }

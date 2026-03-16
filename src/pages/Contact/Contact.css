@@ -1,0 +1,154 @@
+:root {
+    --cntk-navy: #0d1b2a;
+    --cntk-gold: #a88835;
+    --cntk-white: #f6faff;
+    --cntk-card-white: #ffffff;
+    --cntk-font-main: 'Plus Jakarta Sans', sans-serif;
+}
+
+.cntk-vivek-page-wrapper {
+    font-family: var(--cntk-font-main);
+    background-color: var(--cntk-white);
+    color: var(--cntk-navy);
+    min-height: 100vh;
+}
+
+/* HERO SECTION */
+.cntk-vivek-hero {
+    height: 40vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    background-attachment: fixed; 
+}
+.cntk-vivek-hero-content { max-width: 800px; padding: 0 20px; }
+.cntk-vivek-hero-subtitle { color: var(--cntk-gold); letter-spacing: 3px; font-weight: 800; font-size: 0.8rem; }
+.cntk-vivek-hero h1 { font-size: 3rem; font-weight: 800; margin: 10px 0;color: white; }
+.cntk-vivek-hero p { opacity: 0.8; font-size: 1.1rem;color: #b3b3b3; }
+.cntk-vivek-hero-divider { width: 60px; height: 3px; background: var(--cntk-gold); margin: 20px auto; }
+
+/* FLOATING INFO CARDS */
+.cntk-vivek-info-cards-section {
+    padding: 0 40px;
+    margin-top: -60px;
+}
+.cntk-vivek-info-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.cntk-vivek-info-card {
+    background: var(--cntk-card-white);
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border-radius: 15px;
+    border: 1px solid rgba(0,0,0,0.02);
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.cntk-vivek-info-card:hover { transform: translateY(-15px); background: #fffdfa; }
+.cntk-vivek-card-icon { font-size: 1.8rem; color: var(--cntk-gold); margin-bottom: 12px; }
+.cntk-vivek-info-card h4 { font-size: 1.1rem; margin-bottom: 8px; font-weight: 800; }
+.cntk-vivek-info-card p { font-size: 0.9rem; color: #555; }
+
+/* MAIN CONTENT AREA */
+.cntk-vivek-body-area {
+    padding: 80px 40px;
+    display: flex;
+    justify-content: center;
+}
+.cntk-vivek-flex-container {
+    display: flex;
+    gap: 40px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+/* LEFT SIDE: PROFILE */
+.cntk-vivek-profile-side {
+    flex: 1;
+    background: var(--cntk-card-white);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.04);
+}
+.cntk-vivek-portrait-container { width: 100%; height: 450px; }
+.cntk-vivek-portrait-container img { width: 100%; height: 100%; object-fit: cover; }
+.cntk-vivek-profile-text { padding: 35px; text-align: center; }
+.cntk-vivek-specialization { color: var(--cntk-gold); font-weight: 700; font-size: 0.85rem; text-transform: uppercase; margin-top: 5px; }
+.cntk-vivek-edu-stack { margin: 25px 0; text-align: left; background: var(--cntk-white); padding: 20px; border-radius: 12px; }
+.cntk-vivek-edu-line { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; font-size: 0.9rem; font-weight: 600; }
+.cntk-vivek-social-tray { display: flex; justify-content: center; gap: 20px; margin-top: 15px; }
+.cntk-vivek-social-tray a { font-size: 1.4rem; color: var(--cntk-navy); transition: 0.3s; }
+.cntk-vivek-social-tray a:hover { color: var(--cntk-gold); }
+
+/* RIGHT SIDE: FORM */
+.cntk-vivek-form-side {
+    flex: 1.2;
+    background: var(--cntk-navy);
+    color: white;
+    border-radius: 20px;
+    padding: 40px;
+    display: flex;
+    align-items: center;
+}
+.cntk-vivek-form-inner-box { width: 100%; text-align: center; }
+.cntk-vivek-form-top-icon { font-size: 2.5rem; color: var(--cntk-gold); margin-bottom: 15px; }
+.cntk-vivek-form-inner-box h3 { font-size: 2rem; font-weight: 800; margin-bottom: 5px; }
+.cntk-vivek-form-inner-box p { font-size: 0.9rem; opacity: 0.7; margin-bottom: 30px; }
+
+.cntk-vivek-form-element { display: flex; flex-direction: column; gap: 15px; padding-right: 30px; }
+.cntk-vivek-form-row { display: flex; gap: 15px; }
+.cntk-vivek-form-element input, .cntk-vivek-form-element textarea {
+    padding: 14px;
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: white;
+    font-size: 0.95rem;
+    width: 100%;
+}
+.cntk-vivek-form-element input:focus, .cntk-vivek-form-element textarea:focus {
+    outline: none;
+    border-color: var(--cntk-gold);
+}
+.vvk-send{
+    color: white;
+}
+
+.cntk-vivek-form-submit-btn {
+    background: var(--cntk-gold);
+    color: var(--cntk-navy);
+    border: none;
+    padding: 16px;
+    border-radius: 8px;
+    font-weight: 800;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+.cntk-vivek-form-submit-btn:hover { background:  #ce9d21;; transform: translateY(-3px); }
+
+/* RESPONSIVENESS */
+@media (max-width: 1024px) {
+    .cntk-vivek-flex-container { flex-direction: column; }
+    .cntk-vivek-info-cards-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+    .cntk-vivek-info-cards-grid { grid-template-columns: 1fr; }
+    .cntk-vivek-hero h1 { font-size: 2.2rem; }
+    .cntk-vivek-form-row { flex-direction: column; }
+    .cntk-vivek-info-cards-section, .cntk-vivek-body-area { padding: 40px 20px; }
+}

@@ -1,8 +1,249 @@
-.footer {
-  background: #1e272e;
-  color: #d2dae2;
-  text-align: center;
-  padding: 18px 0;
-  margin-top: 40px;
-  font-size: 14px;
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+.footer-premium {
+  background: #0F172A; /* Deep dark blue-black */
+  color: #f1f5f9;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  padding-top: 60px;
+  margin-top: 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer-top {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 30px 50px;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1.2fr 1fr;
+  gap: 40px;
+}
+
+/* SECTION HEADINGS */
+.footer-section h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: #ffffff;
+  position: relative;
+}
+
+.footer-section h3::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 35px;
+  height: 3px;
+  background: #a88835;
+  border-radius: 10px;
+}
+
+/* COLUMN 1: BRAND */
+.f-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.f-logo-icon {
+  font-size: 2rem;
+  color:#a88835;
+}
+
+.f-logo h2 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  background: linear-gradient(to right, #ffffff, #94a3b8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.f-desc {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #e0e7f2;
+}
+
+/* COLUMN 2: QUICK LINKS */
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 12px;
+}
+
+.footer-section ul li a {
+  text-decoration: none;
+  color: #e0e7f2;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+}
+
+.li-icon {
+  font-size: 0.7rem;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+  color:#a88835;
+  padding-left: 5px;
+}
+
+.footer-section ul li a:hover .li-icon {
+  opacity: 1;
+}
+
+/* COLUMN 3: CONTACT */
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  margin-bottom: 18px;
+  color:#e0e7f2;
+  font-size: 0.9rem;
+}
+
+.c-icon {
+  color: #a88835;
+  margin-top: 4px;
+}
+
+.email-text {
+  word-break: break-all;
+}
+
+/* COLUMN 4: GLASS SOCIAL ICONS */
+.social-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.social-glass-link {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05); /* Glass Effect */
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  color: white;
+  font-size: 1.1rem;
+  text-decoration: none;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.social-glass-link:hover {
+  transform: translateY(-8px) rotate(8deg);
+  background: #3b82f6;
+  border-color: #3b82f6;
+  box-shadow: 0 10px 20px rgba(59, 130, 246, 0.4);
+}
+
+/* Specific Hover Colors */
+.social-glass-link.github:hover { background: #333; }
+.social-glass-link.instagram:hover { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%); }
+.social-glass-link.linkedin:hover { background: #0077b5; }
+
+/* BOTTOM FOOTER */
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 30px 0;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.fb-content {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.fb-content p {
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+.fb-content p span {
+  color: #f1f5f9;
+  font-weight: 600;
+}
+
+.footer-policy {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.footer-policy a {
+  text-decoration: none;
+  color: #64748b;
+  font-size: 0.85rem;
+  transition: color 0.3s ease;
+}
+
+.footer-policy a:hover { color: #ffffff; }
+
+.sep { color: #334155; }
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 1024px) {
+  .footer-top {
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-premium {
+    padding-top: 40px;
+  }
+  
+  .footer-top {
+    grid-template-columns: 1fr;
+    text-align: left;
+    gap: 40px;
+  }
+
+  .footer-section h3::after {
+    left: 0;
+    transform: none;
+  }
+
+  .f-logo {
+    justify-content: flex-start;
+  }
+
+  .footer-section ul li a {
+    justify-content: flex-start;
+  }
+
+  .contact-item {
+    justify-content: flex-start;
+  }
+
+  .social-grid {
+    justify-content: flex-start;
+  }
+
+  .fb-content {
+    flex-direction: column;
+    text-align: left;
+  }
 }

@@ -1,72 +1,129 @@
-.create-staff-page {
-  min-height: 100vh;
-  background: #f4f7fb;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+.cs-page-container {
+  /* Perfect height balance */
+  min-height: calc(100vh - 75px); 
+  background: #f1f5f9;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 20px;
+  font-family: 'Inter', sans-serif;
+  overflow-y: auto; /* Zaroorat padne par hi scroll hoga */
 }
 
-.create-staff-card {
+.cs-form-card {
   background: #ffffff;
-  width: 360px;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 400px; /* Thoda wapas bada kiya (380px se 400px) */
+  padding: 30px 35px; /* Better internal breathing room */
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+  border: 1px solid #e2e8f0;
+  transition: transform 0.3s ease;
 }
 
-.create-staff-card h2 {
+.cs-form-header {
   text-align: center;
-  margin-bottom: 20px;
-  color: #1f2937;
+  margin-bottom: 25px; /* Balanced gap */
 }
 
-.create-staff-card input,
-.create-staff-card select {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 12px;
-  border-radius: 6px;
-  border: 1px solid #cbd5e1;
-  font-size: 14px;
+.cs-icon-circle {
+  width: 55px; /* Balanced size */
+  height: 55px;
+  background: #a88835;
+  color: white;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  margin: 0 auto 12px;
+  box-shadow: 0 6px 12px rgba(99, 102, 241, 0.2);
 }
 
-.create-staff-card button {
+.cs-form-header h2 {
+  color: #0f172a;
+  font-size: 1.5rem; /* Better visibility */
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.cs-form-header p {
+  color: #64748b;
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+.cs-form-body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* Clean spacing between inputs */
+}
+
+/* Input Group */
+.cs-input-group {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.cs-input-icon {
+  position: absolute;
+  left: 15px;
+  color: #94a3b8;
+  font-size: 1.05rem;
+}
+
+.cs-input-group input,
+.cs-input-group select {
   width: 100%;
-  padding: 10px;
-  background: #2563eb;
+  padding: 12px 14px 12px 42px; /* Smooth padding */
+  border-radius: 10px;
+  border: 1.6px solid #e2e8f0;
+  font-size: 0.95rem;
+  color: #111827;
+  background: #f8fafc;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.cs-input-group input:focus,
+.cs-input-group select:focus {
+  border-color:  #2a395cca;
+  background: #ffffff;
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.08);
+}
+
+/* Submit Button */
+.cs-submit-btn {
+  margin-top: 8px;
+  width: 100%;
+  padding: 13px; 
+  background: #0f172a; /* Navy Primary */
   color: white;
   border: none;
-  border-radius: 6px;
-  font-weight: bold;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 1rem;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-.create-staff-card button:hover {
-  background: #1d4ed8;
+.cs-submit-btn:hover {
+  background: #a88835;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(99, 102, 241, 0.15);
 }
 
 /* ================= MOBILE FRIENDLY ================= */
-@media (max-width: 768px) {
-  .create-staff-card {
-    width: 92%;
-    max-width: 360px;
-    padding: 22px;
-    border-radius: 8px;
+@media (max-width: 480px) {
+  .cs-form-card {
+    padding: 25px;
+    max-width: 90%;
   }
 
-  .create-staff-card h2 {
-    font-size: 20px;
-    margin-bottom: 16px;
-  }
-
-  .create-staff-card input,
-  .create-staff-card select {
-    font-size: 13.5px;
-    padding: 9px;
-  }
-
-  .create-staff-card button {
-    padding: 9px;
-    font-size: 14px;
+  .cs-form-header h2 {
+    font-size: 1.35rem;
   }
 }

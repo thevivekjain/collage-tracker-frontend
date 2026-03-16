@@ -1,10 +1,13 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Unauthorized from "./components/Unauthorized";
 
 import HomeRedirect from "./components/HomeRedirect";
+import About from "./pages/About/About";
+import Contact from "./pages/Contact/Contact";
 import Login from "./auth/Login";
 import Register from "./auth/Register";
 
@@ -29,6 +32,8 @@ function App() {
 
         {/* ================= PUBLIC ROUTES ================= */}
         <Route path="/" element={<HomeRedirect />} />
+        <Route path="/about" element={<About/>} />
+        <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/unauthorized" element={<Unauthorized />} />
@@ -154,152 +159,9 @@ function App() {
         />
 
       </Routes>
+      <Footer/>
     </Router>
   );
 }
 
 export default App;
-
-// import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
-// import Navbar from "./components/Navbar";
-// import ProtectedRoute from "./components/ProtectedRoute";
-// import Unauthorized from "./components/Unauthorized";
-
-// import HomeRedirect from "./components/HomeRedirect";
-// import Login from "./auth/Login";
-// import Register from "./auth/Register";
-
-// import CreateRequest from "./student/CreateRequest";
-// import MyRequests from "./student/MyRequests";
-// import Timeline from "./student/Timeline";
-
-// import AssignedRequests from "./staff/AssignedRequests";
-// import Dashboard from "./admin/Dashboard";
-// import CreateStaff from "./admin/CreateStaff"; 
-// import ManageStaff from "./admin/ManageStaff";
-// import AllRequests from "./staff/AllRequests";
-// import ManageStudents from "./admin/ManageStudents";
-// import Chatbot from "./components/Chatbot";
-
-
-// function App() {
-//   return (
-//     <Router>
-//       <Navbar />
-
-//       <Routes>
-//         {/* PUBLIC */}
-//         <Route path="/" element={<HomeRedirect />} />
-//         <Route path="/login" element={<Login />} />
-//         {/* <Route path="/" element={<Login />} /> */}
-
-        
-//         <Route path="/unauthorized" element={<Unauthorized />} />
-//         <Route path="/register" element={<Register />} />
-
-//         {/* STUDENT */}
-//         <Route
-//           path="/student/create"
-//           element={
-//             <ProtectedRoute allowedRoles={["student"]}>
-//               <CreateRequest />
-//               <Chatbot/>
-//             </ProtectedRoute>
-//           }
-//         />
-
-//         <Route
-//           path="/student/my-requests"
-//           element={
-//             <ProtectedRoute allowedRoles={["student"]}>
-//               <MyRequests />
-//               <Chatbot/>
-//             </ProtectedRoute>
-//           }
-//         />
-
-//         <Route
-//           path="/student/timeline/:id"
-//           element={
-//             <ProtectedRoute allowedRoles={["student"]}>
-//               <Timeline />
-//               <Chatbot/>
-//             </ProtectedRoute>
-//           }
-//         />
-
-//         {/* STAFF */}
-//         <Route
-//           path="/staff/assigned"
-//           element={
-//             <ProtectedRoute
-//               allowedRoles={[
-//                 "clerk",
-//                 "hod",
-//                 "office",
-//                 "accounts",
-//                 "principal"
-//               ]}
-//             >
-//               <AssignedRequests />
-//             </ProtectedRoute>
-//           }
-//         />
-
-//         {/* ADMIN */}
-//         <Route
-//           path="/admin/dashboard"
-//           element={
-//             <ProtectedRoute allowedRoles={["admin"]}>
-//               <Dashboard />
-//             </ProtectedRoute>
-//           }
-//         />
-
-//         <Route
-//           path="/admin/create-staff"
-//           element={
-//             <ProtectedRoute allowedRoles={["admin"]}>
-//               <CreateStaff />
-//             </ProtectedRoute>
-//           }
-//         />
-
-//         <Route
-//   path="/admin/manage-staff"
-//   element={
-//     <ProtectedRoute allowedRoles={["admin"]}>
-//       <ManageStaff />
-//     </ProtectedRoute>
-//   }
-// />
-
-
-
-// <Route
-//   path="/office/all-requests"
-//   element={
-//     <ProtectedRoute allowedRoles={["office", "admin"]}>
-//       <AllRequests />
-//     </ProtectedRoute>
-//   }
-// />
-
-
-
-// <Route
-//   path="/admin/manage-students"
-//   element={
-//     <ProtectedRoute allowedRoles={["admin"]}>
-//       <ManageStudents />
-//     </ProtectedRoute>
-//   }
-// />
-
-//       </Routes>
-//     </Router>
-//   );
-// }
-
-// export default App;

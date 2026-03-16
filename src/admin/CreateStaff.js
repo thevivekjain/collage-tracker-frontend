@@ -1,5 +1,7 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import api from "../api/axios";
+import Footer from "../components/Footer";
+import { FaUserPlus, FaUser, FaEnvelope, FaLock, FaUserTag } from "react-icons/fa";
 import "./CreateStaff.css";
 
 function CreateStaff() {
@@ -44,51 +46,75 @@ function CreateStaff() {
   };
 
   return (
-    <div className="create-staff-page">
-      <div className="create-staff-card">
-        <h2>Create Staff</h2>
+    <div className="cs-page-container">
+      <div className="cs-form-card">
+        <div className="cs-form-header">
+          <div className="cs-icon-circle">
+            <FaUserPlus />
+          </div>
+          <h2>Create Staff</h2>
+          <p>Register a new member to the management system</p>
+        </div>
 
-        <input
-          name="name"
-          placeholder="Full Name"
-          value={form.name}
-          onChange={handleChange}
-        />
+        <div className="cs-form-body">
+          <div className="cs-input-group">
+            <FaUser className="cs-input-icon" />
+            <input
+              name="name"
+              placeholder="Full Name"
+              value={form.name}
+              onChange={handleChange}
+              autoComplete="off"
+            />
+          </div>
 
-        <input
-          name="email"
-          type="email"
-          placeholder="Official Email"
-          value={form.email}
-          onChange={handleChange}
-        />
+          <div className="cs-input-group">
+            <FaEnvelope className="cs-input-icon" />
+            <input
+              name="email"
+              type="email"
+              placeholder="Official Email Address"
+              value={form.email}
+              onChange={handleChange}
+              autoComplete="off"
+            />
+          </div>
 
-        <input
-          name="password"
-          type="password"
-          placeholder="Temporary Password"
-          value={form.password}
-          onChange={handleChange}
-        />
+          <div className="cs-input-group">
+            <FaLock className="cs-input-icon" />
+            <input
+              name="password"
+              type="password"
+              placeholder="Temporary Password"
+              value={form.password}
+              onChange={handleChange}
+            />
+          </div>
 
-        <select
-          name="role"
-          value={form.role}
-          onChange={handleChange}
-        >
-          <option value="">Select Role</option>
-          <option value="clerk">Clerk</option>
-          <option value="hod">HOD</option>
-          <option value="office">Office</option>
-          <option value="accounts">Accounts</option>
-          <option value="principal">Principal</option>
-        </select>
+          <div className="cs-input-group">
+            <FaUserTag className="cs-input-icon" />
+            <select
+              name="role"
+              value={form.role}
+              onChange={handleChange}
+            >
+              <option value="">Select Staff Role</option>
+              <option value="clerk">Clerk</option>
+              <option value="hod">HOD</option>
+              <option value="office">Office Staff</option>
+              <option value="accounts">Accounts</option>
+              <option value="principal">Principal</option>
+            </select>
+          </div>
 
-        <button onClick={handleSubmit}>
-          Create User
-        </button>
+          <button className="cs-submit-btn" onClick={handleSubmit}>
+            Create User Account
+          </button>
+        </div>
       </div>
+       
     </div>
+    
   );
 }
 
