@@ -188,10 +188,7 @@
   .hp-stats-container { grid-template-columns: repeat(2, 1fr); gap: 20px; }
   .hp-info-image { order: -1; }
   .hp-stats-strip{margin-left: 20px; margin-right: 20px;}
-  .hp-info-text h2{
-    margin-left: 10px;
-    margin-right: 10px;
-  }
+
 }
 
 @media (max-width: 768px) {
@@ -199,10 +196,7 @@
 
   .hp-cta-box { padding: 40px 20px; }
     .hp-stats-strip{margin-left: 20px; margin-right: 20px;}
-      .hp-info-text h2{
-    margin-left: 10px;
-    margin-right: 10px;
-  }
+
    .hp-info-grid, .hp-features-grid { grid-template-columns: 1fr;margin-right: 20px; }
 
 }
