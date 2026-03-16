@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import api from "../api/axios";
-import Footer from "../components/Footer";
 import { FaUserPlus, FaUser, FaEnvelope, FaLock, FaUserTag } from "react-icons/fa";
 import "./CreateStaff.css";
 

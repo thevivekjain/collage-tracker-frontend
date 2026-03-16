@@ -73,9 +73,9 @@ function Footer() {
         <div className="fb-content">
           <p>&copy; {new Date().getFullYear()} <span>Vivek Kumar Jain</span>. All Rights Reserved.</p>
           <div className="footer-policy">
-            <a href="#">Privacy Policy</a>
+            <a href="/">Privacy Policy</a>
             <span className="sep">|</span>
-            <a href="#">Terms of Service</a>
+            <a href="/">Terms of Service</a>
           </div>
         </div>
       </div>

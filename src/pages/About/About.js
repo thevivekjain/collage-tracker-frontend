@@ -2,8 +2,8 @@ import React from "react";
 import { motion } from "framer-motion";
 import Navbar from "../../components/Navbar";
 import { 
-  FaInfoCircle, FaUsers, FaUserShield, FaUserGraduate, 
-  FaCheckCircle, FaProjectDiagram, FaLock, FaChartLine,
+  FaUsers, FaUserShield, FaUserGraduate, 
+  FaProjectDiagram, FaLock, FaChartLine,
   FaBell, FaRobot, FaFileDownload, FaEdit, FaHistory
 } from "react-icons/fa";
 import "./About.css";

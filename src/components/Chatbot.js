@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FaRobot, FaPaperPlane, FaTimes, FaMinus } from "react-icons/fa";
+import { FaRobot, FaPaperPlane, FaTimes} from "react-icons/fa";
 import api from "../api/axios";
 import "./Chatbot.css";
 

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import api from "../api/axios";
-import { FaArrowLeft, FaCheckCircle, FaClock, FaExclamationTriangle, FaUserTie } from "react-icons/fa";
+import { FaArrowLeft, FaCheckCircle,  FaExclamationTriangle, FaUserTie } from "react-icons/fa";
 import "./Timeline.css";
 
 function Timeline() {
