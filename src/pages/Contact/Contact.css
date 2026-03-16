@@ -144,6 +144,9 @@
 @media (max-width: 1024px) {
     .cntk-vivek-flex-container { flex-direction: column; }
     .cntk-vivek-info-cards-grid { grid-template-columns: repeat(2, 1fr); }
+    .cntk-vivek-profile-text{
+        margin-bottom: 150px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -151,4 +154,7 @@
     .cntk-vivek-hero h1 { font-size: 2.2rem; }
     .cntk-vivek-form-row { flex-direction: column; }
     .cntk-vivek-info-cards-section, .cntk-vivek-body-area { padding: 40px 20px; }
+        .cntk-vivek-profile-text{
+        margin-bottom: 150px;
+    }
 }
